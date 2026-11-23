@@ -2,45 +2,44 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Learning Object Permanence from Natural Revealing Events | DevAI @ NeurIPS 2026</title><meta name="description" content="Can a model learn what persists by seeing the same scene again once the occluder has gone? A developmental hypothesis tested with temporal privileged distillation.">
 <meta property="og:title" content="Learning Object Permanence from Natural Revealing Events | DevAI @ NeurIPS 2026"><meta property="og:description" content="Can a model learn what persists by seeing the same scene again once the occluder has gone? A developmental hypothesis tested with temporal privileged distillation."><meta property="og:type" content="website">
-<style>:root{--pri:#2B2D6E;--acc:#B26A00;--tint:#ECEDF7;--tint2:#FBF3E4}*{box-sizing:border-box}body{margin:0;font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#1e1e1e;background:#fff}
-main{max-width:980px;margin:0 auto;padding:0 22px 70px}h1,h2,h3{font-family:Georgia,Cambria,"Times New Roman",serif;color:var(--pri);line-height:1.2}
-h1{font-size:clamp(28px,4.6vw,46px);margin:.2em 0 .3em}h2{font-size:27px;margin:2.2em 0 .5em;padding:.35em .6em;background:var(--tint);border-radius:10px}
-h2 span{display:inline-block;width:1.5em;height:1.5em;line-height:1.5em;text-align:center;border-radius:50%;background:var(--pri);color:#fff;font-size:.75em;margin-right:.5em;vertical-align:.1em}
-.hero{padding:56px 0 8px}.center{text-align:center}.authors{font-size:18px;margin:.4em 0 .1em}.affil{color:#56605a;font-size:15px;margin:0}
-.venue{color:var(--acc);font-weight:700;margin:.7em 0}.btns a{display:inline-block;margin:6px 8px 6px 0;padding:9px 18px;border-radius:999px;background:var(--pri);color:#fff;text-decoration:none;font-weight:600;font-size:15px}
-.btns a.alt{background:#fff;color:var(--pri);border:2px solid var(--pri)}.abs{max-width:840px;margin:0 auto;text-align:justify}h2.plain{background:none;text-align:center;padding:0;margin-top:1.6em}.btns a.dark{background:#2b2b2b;border:2px solid #2b2b2b}.lead{background:var(--tint2);border-radius:12px;padding:16px 20px;font-size:19px;margin:22px 0}
-.lead b,.hl{color:var(--acc);font-weight:700}img{max-width:100%;height:auto;border-radius:8px}figure{margin:18px 0;text-align:center}figcaption{color:#56605a;font-size:14.5px;font-style:italic;margin-top:6px}
-.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;align-items:start}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:18px 0}
-.stat{background:var(--tint2);border-radius:12px;padding:14px;text-align:center}.stat b{display:block;font:700 34px Georgia,serif;color:var(--acc)}.stat span{font-size:14px}
-table{border-collapse:collapse;width:100%;margin:14px 0;font-size:16px}th{background:var(--pri);color:#fff;text-align:left;padding:8px 12px}td{padding:8px 12px;border-bottom:1px solid #d5ded8}
-tr.us td{background:var(--tint2);color:var(--acc);font-weight:700}td.n,th.n{text-align:center}pre{background:#f4f6f5;border-radius:10px;padding:14px 16px;overflow:auto;font-size:13.5px;line-height:1.45}
-.eq{background:var(--tint);border-radius:10px;padding:10px 16px;text-align:center;font-family:"Cambria Math",Georgia,serif;font-size:18px;overflow-x:auto}
-footer{color:#56605a;font-size:14px;border-top:1px solid #d5ded8;margin-top:50px;padding-top:16px}a{color:var(--pri)}li{margin:.3em 0}</style></head><body><main>
+<style>:root{--pri:#2B2D6E;--acc:#B26A00;--tint:#ECEDF7;--tint2:#FBF3E4}*{box-sizing:border-box}body{margin:0;font:17px/1.65 "Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;color:#363636;background:#fff}
+main{max-width:960px;margin:0 auto;padding:0 24px 70px}h1,h2,h3{font-family:"Google Sans","Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;color:#363636;line-height:1.2}
+h1{font-size:clamp(30px,4.8vw,48px);font-weight:700;margin:.2em 0 .35em}h2{font-size:30px;font-weight:700;text-align:center;margin:2.4em 0 .7em}
+h3{font-size:20px;font-weight:400;color:#4a4a4a}.hero{padding:56px 0 8px}.center{text-align:center}.authors{font-size:20px;margin:.5em 0 .15em}.affil{color:#4a4a4a;font-size:16px;margin:0}
+.venue{font-size:18px;font-weight:700;color:#363636;margin:.9em 0 .2em}.btns{margin:1em 0}.btns a{display:inline-block;margin:5px 5px;padding:9px 20px;border-radius:999px;background:#363636;color:#fff;text-decoration:none;font-size:16px}
+.btns a:hover{background:#111}.lead{max-width:820px;margin:20px auto 6px;text-align:center;font-size:18px;color:#4a4a4a}.abs{max-width:820px;margin:0 auto;text-align:justify}
+img{max-width:100%;height:auto}figure{margin:20px 0;text-align:center}figcaption{color:#4a4a4a;font-size:15px;margin-top:8px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:start}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:22px 0;border-top:1px solid #dbdbdb;border-bottom:1px solid #dbdbdb;padding:12px 0}
+.stat{text-align:center}.stat b{display:block;font-size:32px;font-weight:700;color:#363636}.stat span{font-size:14px;color:#4a4a4a}
+table{border-collapse:collapse;width:100%;max-width:760px;margin:18px auto;font-size:16px;border-top:2px solid #363636;border-bottom:2px solid #363636}th{text-align:left;padding:8px 12px;border-bottom:1px solid #363636}td{padding:7px 12px}
+tr.us td{font-weight:700;border-top:1px solid #dbdbdb}td.n,th.n{text-align:center}pre{background:#f5f5f5;padding:16px 18px;overflow:auto;font-size:13.5px;line-height:1.45}
+.eq{background:#f5f5f5;padding:12px 16px;text-align:center;font-family:"Cambria Math",Georgia,serif;font-size:18px;overflow-x:auto}
+p,ul,ol{max-width:820px;margin-left:auto;margin-right:auto}footer{color:#4a4a4a;font-size:14px;text-align:center;border-top:1px solid #dbdbdb;margin-top:56px;padding-top:18px}a{color:#3273dc}li{margin:.35em 0}</style></head><body><main>
 <section class="hero center">
 <p class="venue">Accepted at DevAI: Developmental Perspectives on AI · NeurIPS 2026 Workshop · Atlanta · December 13</p>
 <h1>Learning Object Permanence from Natural Revealing Events</h1>
 <h3 style="margin:0 0 .6em;font-weight:400">Temporal privileged distillation for amodal counting</h3>
 <p class="authors"><b>Harshitha Manjunatha</b><sup>1</sup> · Prabha Sundaravadivel<sup>2</sup> · Shekhar Suman Borah<sup>2</sup> · Lakshman Tamil<sup>1</sup> · H. Allen Torbert<sup>3</sup></p>
 <p class="affil"><sup>1</sup>The University of Texas at Dallas &nbsp; <sup>2</sup>The University of Texas at Tyler &nbsp; <sup>3</sup>USDA Agricultural Research Service</p>
-<p class="btns"><a class="dark" href="https://openreview.net/forum?id=slzb6MtRIj">Paper (OpenReview)</a><a class="dark" href="https://github.com/harshitha-8/DEV-AI_2026">GitHub</a><a class="alt" href="https://harshitha-8.github.io/WIML_NeurIPS2026/">Companion: method view (WiML)</a></p>
+<p class="btns"><a href="https://openreview.net/forum?id=slzb6MtRIj">Paper (OpenReview)</a><a href="https://github.com/harshitha-8/DEV-AI_2026">GitHub</a><a href="https://harshitha-8.github.io/WIML_NeurIPS2026/">Companion: method view (WiML)</a></p>
 </section>
 <p class="lead"><b>Hypothesis.</b> Stable object representations can be supported by temporally ordered revealing events, provided that object identity is preserved. We turn that idea into a training signal. It is a machine-learning test of the hypothesis, not a model of infant cognition.</p>
 <div class="row"><figure><img src="assets/time_reveals.gif" alt="An occluded cotton plot revealed by defoliation"><figcaption>A natural revealing event: defoliation removes the occluder; the bolls stay.</figcaption></figure>
 <figure><img src="assets/synthetic_reveal.gif" alt="Synthetic primitives revealed"><figcaption>The same structure in a controlled task with no crop texture.</figcaption></figure></div>
-<h2 class="plain">Abstract</h2>
+<h2>Abstract</h2>
 <p class="abs">Developmental vision is shaped by repeated experiences with objects that change in visibility while keeping their identity and structure. We apply this idea to train models for amodal counting when objects are heavily and systematically occluded. Temporal Privileged Distillation (TePD) uses pairs of images: one showing objects partially hidden, and another taken later, after a natural process such as defoliation has removed much of the obstruction. During training, a frozen teacher encodes the later view while a smaller student learns from the occluded image. The student matches the teacher's representation and keeps the semantic cues needed for counting. At test time the student works on its own: no future image or teacher is needed. On Cotton-TePD, 3,000 drone image pairs taken before and after cotton defoliation, TePD reaches a latent cosine similarity of 0.873 and a counting mean absolute error of 4.2, compared with 0.745 and 7.2 for the strongest evaluated baseline. A controlled synthetic task yields 0.972 similarity, suggesting the effect is not limited to cotton texture. The method is not meant to mimic infant learning. It tests a narrower developmental idea: stable representations can emerge from observing how visibility changes over time.</p>
-<h2><span>1</span>The question</h2>
+<h2>Motivation</h2>
 <p>Infants organize scenes using spatiotemporal continuity and partly visible contours, and they expect hidden objects to persist (Kellman &amp; Spelke, 1983; Spelke, 1990; Baillargeon, 1987). Vision models are usually trained on isolated frames, with amodal labels drawn by people or pixels hidden by artificial masks. Neither uses the ordinary fact that visibility changes over time. We ask whether that fact alone can supply supervision.</p>
-<h2><span>2</span>From insight to objective</h2>
+<h2>Method</h2>
 <figure><img src="assets/revealing_event.jpg" alt="Day 0, day 3 and day 7 over the same plot"><figcaption>Defoliation progressively removes a structured occluder while mature cotton bolls remain approximately stationary. The later view is used only as privileged training information.</figcaption></figure>
 <p class="eq">x<sub>t1</sub> = M ⊙ S + (1 − M) ⊙ N, &nbsp; x<sub>t2</sub> = S + ε &nbsp;&nbsp;|&nbsp;&nbsp; z<sub>T</sub> = g<sub>φ</sub>(x<sub>t2</sub>), &nbsp; z̃<sub>S</sub> = P(f<sub>θ</sub>(x<sub>t1</sub>)) &nbsp;&nbsp;|&nbsp;&nbsp; L = L<sub>rec</sub> + λ<sub>sem</sub>L<sub>sem</sub>, &nbsp; λ<sub>sem</sub> = 0.1</p>
 <figure><img src="assets/method_overview.png" alt="TePD training and inference"><figcaption>The frozen teacher and the frozen CLIP text encoder shape the student during training and are discarded afterwards.</figcaption></figure>
 <ul><li><b>Order matters.</b> The occluder is removed between views, so pixel similarity falls while access to the persistent target improves. The later view is not another augmentation.</li>
 <li><b>Representations, not pixels.</b> A plausible completion can add or remove objects, so the student matches features of the particular hidden instance.</li>
 <li><b>Asymmetry.</b> A frozen ResNet-50 teacher and CLIP guide shape training; a ResNet-18 student and counting head run alone afterwards.</li></ul>
-<h2><span>3</span>Two falsifiable predictions</h2>
-<ol><li>A useful teacher view must reveal the <span class="hl">same underlying instance</span>.</li><li>Performance should <span class="hl">deteriorate</span> as registration error or target motion breaks identity across time.</li></ol>
-<h2><span>4</span>Evidence</h2>
+<h2>Two falsifiable predictions</h2>
+<ol><li>A useful teacher view must reveal the <b>same underlying instance</b>.</li><li>Performance should <b>deteriorate</b> as registration error or target motion breaks identity across time.</li></ol>
+<h2>Results</h2>
 <p>Cotton-TePD: UAV imagery at 30 m, before defoliation and seven days after Thidiazuron; 512×512 patches registered with SIFT and RANSAC; 2,500 training and 500 test pairs from spatially disjoint field regions.</p>
 <div class="stats"><div class="stat"><b>0.873</b><span>latent cosine similarity<br>(best baseline 0.745)</span></div><div class="stat"><b>4.2</b><span>counting MAE<br>(best baseline 7.2)</span></div><div class="stat"><b>+17.2%</b><span>LCS vs strongest baseline</span></div><div class="stat"><b>−41.7%</b><span>MAE vs strongest baseline</span></div></div>
 <table><tr><th>Method</th><th>Learning signal</th><th class="n">LCS ↑</th><th class="n">Counting MAE ↓</th></tr>
@@ -55,18 +54,18 @@ footer{color:#56605a;font-size:14px;border-top:1px solid #d5ded8;margin-top:50px
 <div class="row"><figure><img src="assets/teacher_choice.png" alt="Teacher choice"><figcaption>LCS in each teacher's own space: ResNet-50 0.537, DINOv2 0.417, MAE-ViT 0.340. Diagnostic, not a universal scale.</figcaption></figure>
 <figure><img src="assets/temporal_gap.png" alt="Temporal gap"><figcaption>Gaps of 3, 7 and 14 days: LCS 0.417, 0.419, 0.416. Stable within the tested interval.</figcaption></figure></div>
 <p>Removing the semantic term lowers LCS from 0.873 to 0.824 and raises MAE from 4.2 to 5.1. Results are stable for semantic weights from 0.05 to 0.20 and degrade at 1.0 (0.790 / 6.4).</p>
-<h2><span>5</span>A developmental reading, with boundaries</h2>
+<h2>Discussion</h2>
 <p>The order of experience supplies supervision that neither frame holds alone: an ambiguous observation is constrained after the fact by a later encounter with the same scene. That asymmetry resembles a developmental curriculum and may be useful wherever visibility changes while identity persists, such as snow melt, tidal recession, staged assembly or repeated robot interaction. Each would need evidence that the later view preserves the target instance.</p>
 <ul><li>This is not a psychological model: no gaze, action, memory consolidation or infant curriculum.</li>
 <li>It assumes approximate target stationarity, a monotonic increase in visibility and adequate registration.</li>
 <li>The evidence covers one crop, one acquisition protocol and one synthetic control.</li></ul>
-<h2><span>6</span>Why this matters beyond one dataset</h2>
+<h2>Broader relevance</h2>
 <p>The claim is about learning, not about cotton. Three ideas carry over to other problems.</p>
 <ul><li><b>Experience is ordered, and the order is informative.</b> Standard self-supervision treats two views of a scene as interchangeable. A revealing event makes one view strictly more informative than the other, and that asymmetry is a usable training signal.</li>
 <li><b>Supervision can come from the world's own dynamics.</b> No person completes the hidden object; a later look at the same scene does. Any system that revisits scenes collects such pairs as a by-product of operating.</li>
 <li><b>What is learned outlives the teacher.</b> The privileged view shapes the representation and is then removed. The student acts on the occluded present alone.</li></ul>
 <p>The boundary is equally general: the later view must show the same instances. Where identity is not preserved, the signal is noise.</p>
-<h2><span>7</span>Citation</h2>
+<h2>BibTeX</h2>
 <pre>@inproceedings{manjunatha2026permanence,
   title     = {Learning Object Permanence from Natural Revealing Events: Temporal Privileged Distillation for Amodal Counting},
   author    = {Manjunatha, Harshitha and Sundaravadivel, Prabha and Borah, Shekhar Suman and Tamil, Lakshman and Torbert, H. Allen},
