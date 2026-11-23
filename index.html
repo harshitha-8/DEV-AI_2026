@@ -60,7 +60,13 @@ footer{color:#56605a;font-size:14px;border-top:1px solid #d5ded8;margin-top:50px
 <ul><li>This is not a psychological model: no gaze, action, memory consolidation or infant curriculum.</li>
 <li>It assumes approximate target stationarity, a monotonic increase in visibility and adequate registration.</li>
 <li>The evidence covers one crop, one acquisition protocol and one synthetic control.</li></ul>
-<h2><span>6</span>Citation</h2>
+<h2><span>6</span>Why this matters beyond one dataset</h2>
+<p>The claim is about learning, not about cotton. Three ideas carry over to other problems.</p>
+<ul><li><b>Experience is ordered, and the order is informative.</b> Standard self-supervision treats two views of a scene as interchangeable. A revealing event makes one view strictly more informative than the other, and that asymmetry is a usable training signal.</li>
+<li><b>Supervision can come from the world's own dynamics.</b> No person completes the hidden object; a later look at the same scene does. Any system that revisits scenes collects such pairs as a by-product of operating.</li>
+<li><b>What is learned outlives the teacher.</b> The privileged view shapes the representation and is then removed. The student acts on the occluded present alone.</li></ul>
+<p>The boundary is equally general: the later view must show the same instances. Where identity is not preserved, the signal is noise.</p>
+<h2><span>7</span>Citation</h2>
 <pre>@inproceedings{manjunatha2026permanence,
   title     = {Learning Object Permanence from Natural Revealing Events: Temporal Privileged Distillation for Amodal Counting},
   author    = {Manjunatha, Harshitha and Sundaravadivel, Prabha and Borah, Shekhar Suman and Tamil, Lakshman and Torbert, H. Allen},
