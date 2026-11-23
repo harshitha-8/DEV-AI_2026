@@ -45,7 +45,7 @@ The later view contains information the earlier view lacks. We treat it as **pri
 
 ## From a developmental insight to a learning signal
 
-<p align="center"><img src="docs/assets/method_overview.png" width="92%" alt="TePD training and inference"></p>
+<p align="center"><img src="docs/assets/method_overview.png" width="100%" alt="TePD training and inference"></p>
 <p align="center"><i>TePD training and inference. The frozen teacher and the frozen CLIP text encoder shape the student during training and are discarded afterwards.</i></p>
 
 The setting, with targets $S$, structured occluder $N$, an unobserved visibility mask $M$ and residual $\epsilon$:
@@ -117,6 +117,16 @@ To separate the learning mechanism from crop texture, we built scenes of colored
 ## A developmental reading
 
 The order and structure of experience supply supervision that neither frame holds alone. An ambiguous observation is constrained after the fact by a later encounter with the same scene. That asymmetry resembles a developmental curriculum, and it may be useful wherever visibility changes while identity persists: snow melt, tidal recession, staged assembly, repeated robot interaction. Each of those would need evidence that the later view preserves the target instance.
+
+## Why this matters beyond one dataset
+
+The claim is about learning, not about cotton. Three ideas carry over to other problems:
+
+- **Experience is ordered, and the order is informative.** Standard self-supervision treats two views of a scene as interchangeable. A revealing event makes one view strictly more informative than the other, and that asymmetry is a usable training signal.
+- **Supervision can come from the world's own dynamics.** No person completes the hidden object; a later look at the same scene does. Any system that revisits scenes collects such pairs as a by-product of operating.
+- **What is learned outlives the teacher.** The privileged view shapes the representation and is then removed. The student acts on the occluded present alone, with a ResNet-18 forward pass and a counting head.
+
+The boundary is equally general: the later view must show the same instances. Where identity is not preserved, the signal is noise.
 
 ## What this is not
 
